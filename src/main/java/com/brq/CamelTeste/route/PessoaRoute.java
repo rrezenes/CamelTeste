@@ -17,8 +17,6 @@ public class PessoaRoute extends RouteBuilder{
 		from(ROTA_LISTA_PESSOAS)
 			.routeId(ROTA_LISTA_PESSOAS_ID)
 			.routeDescription("Lista pessoas")
-			.bean(PessoaBean.class,"tratarEntrada")
-			.to("endpoint")
-			.bean(PessoaBean.class,"validarSaida");	
+			.bean(PessoaBean.class,"gerarSaida");
 	}	
 }

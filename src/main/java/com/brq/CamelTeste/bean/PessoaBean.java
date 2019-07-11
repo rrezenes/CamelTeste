@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.camel.Exchange;
 
+import com.brq.CamelTeste.model.Endereco;
 import com.brq.CamelTeste.model.Pessoa;
 
 public class PessoaBean {
@@ -20,6 +21,35 @@ public class PessoaBean {
 		List<Pessoa> pessoas = Arrays.asList(pessoa, pessoa2);
 
 		ex.getOut().setBody(pessoas);
+	}
+	
+	public void prepararEntrada(Exchange ex) {
+		Endereco end = new Endereco();
+		
+		String nome = ex.getIn().getHeader("nome", String.class);
+		
+		end.setCep("09210-270");
+		
+		ex.setProperty("cep", "09210270");
+		
+	}
+	
+	public void tratarSaida(Exchange ex) {
+		String nome = ex.getIn().getHeader("nome", String.class);
+		Endereco body = ex.getIn().getBody(Endereco.class);
+		
+		Pessoa p = new Pessoa();
+		p.setEndereco(body);
+		p.setCPF("12312312312");
+		p.setNome(nome);
+		
+		ex.getOut().setBody(p);
+		
+		
+	}
+	
+	public void gerarEntradaDados(Endereco end) {
+		
 	}
 
 }

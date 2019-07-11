@@ -28,7 +28,7 @@ public class PessoaBean {
 		
 		String nome = ex.getIn().getHeader("nome", String.class);
 		
-		end.setCep("09210-270");
+		end.setCep("09210270");
 		
 		ex.setProperty("cep", "09210270");
 		

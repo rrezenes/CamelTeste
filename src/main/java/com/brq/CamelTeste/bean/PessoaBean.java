@@ -26,7 +26,8 @@ public class PessoaBean {
 	public void prepararEntrada(Exchange ex) {
 		Endereco end = new Endereco();
 		
-		end.setCep("09210-270");
+		end.setCep("09210270");
+
 		
 		ex.setProperty("cep", "09210270");
 		
